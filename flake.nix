@@ -1,5 +1,5 @@
 {
-  description = "Notion MCP server - deterministic tools for Notion databases";
+  description = "modron - deterministic CLI for Notion databases";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -10,20 +10,20 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
-        version = "0.1.0";
+        version = "0.2.0";
         src = ./.;
-        vendorHash = "sha256-/m9PZgfJsUfSqQs5e4HP/KpGVtfDiK/v20G+vTI3vS4=";
+        vendorHash = "sha256-7K17JaXFsjf163g5PXCb5ng2gYdotnZ2IDKk8KFjNj0=";
       in
       {
         packages = {
-          notion-mcp = pkgs.buildGoModule {
-            pname = "notion-mcp";
+          modron = pkgs.buildGoModule {
+            pname = "modron";
             inherit version src vendorHash;
-            subPackages = [ "cmd/notion-mcp" ];
-            meta.description = "MCP server for Notion databases";
+            subPackages = [ "cmd/modron" ];
+            meta.description = "CLI for Notion databases";
           };
 
-          default = self.packages.${system}.notion-mcp;
+          default = self.packages.${system}.modron;
         };
 
         devShells.default = pkgs.mkShell {

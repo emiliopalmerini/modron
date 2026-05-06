@@ -7,8 +7,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/emiliopalmerini/notion-mcp/internal/shared/notion"
-	"github.com/emiliopalmerini/notion-mcp/internal/tasks"
+	"github.com/emiliopalmerini/modron/internal/shared/notion"
+	"github.com/emiliopalmerini/modron/internal/tasks"
 )
 
 func newTestPage(id, name, status, due string) notion.Page {

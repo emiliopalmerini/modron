@@ -4,7 +4,7 @@ import (
 	"context"
 	"strings"
 
-	"github.com/emiliopalmerini/notion-mcp/internal/shared/notion"
+	"github.com/emiliopalmerini/modron/internal/shared/notion"
 )
 
 type NotionRepository struct {
