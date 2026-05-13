@@ -36,7 +36,7 @@ func (r *NotionRepository) Query(ctx context.Context, f Filter) (*QueryResult, e
 		fb.CheckboxEquals("Processed", *f.Processed)
 	}
 	if f.HasURL {
-		fb.URLIsNotEmpty("userDefined:URL")
+		fb.URLIsNotEmpty("URL")
 	}
 
 	sortDir := f.SortDir
@@ -99,7 +99,7 @@ func (r *NotionRepository) Create(ctx context.Context, p CreateParams) (*Entry, 
 		}
 	}
 	if p.URL != "" {
-		pb.URL("userDefined:URL", p.URL)
+		pb.URL("URL", p.URL)
 	}
 	if p.Processed {
 		pb.Checkbox("Processed", true)
@@ -135,7 +135,7 @@ func pageToEntry(page notion.Page) Entry {
 	if raw, ok := page.Properties["Processed"]; ok {
 		e.Processed = notion.ExtractCheckbox(raw)
 	}
-	if raw, ok := page.Properties["userDefined:URL"]; ok {
+	if raw, ok := page.Properties["URL"]; ok {
 		e.EntryURL = notion.ExtractURL(raw)
 	}
 	return e

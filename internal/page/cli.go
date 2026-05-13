@@ -55,7 +55,7 @@ Examples:
   - Checkbox: {"Processed": {"checkbox": true}}
   - Relation: {"Project": {"relation": [{"id": "page-uuid"}]}}
   - Rich text:{"Summary": {"rich_text": [{"text": {"content": "text"}}]}}
-  - URL:      {"userDefined:URL": {"url": "https://example.com"}}`,
+  - URL:      {"URL": {"url": "https://example.com"}}`,
 		Args: cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			var propUpdates map[string]any
